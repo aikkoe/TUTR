@@ -37,9 +37,11 @@ def game_start():
         if second_quest.lower() == 'да':
             game_start()
 
-        if second_quest.lower() == 'нет':
+        elif second_quest.lower() == 'нет':
             print('До свидания')
             break
+        else:
+            print('Введите корректно...')
 
 
 game_start()
