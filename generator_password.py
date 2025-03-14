@@ -51,3 +51,4 @@ def generate_password(leng, char):
 
 
 print(generate_password(leng_pass, chars))
+

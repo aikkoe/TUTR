@@ -58,7 +58,7 @@ def game_start():
             if again.lower() == 'да':
                 game_start()
             else:
-                print('Покеда')
+                print('\nПокеда')
             break
 
 
