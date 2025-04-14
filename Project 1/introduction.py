@@ -30,9 +30,7 @@ def game():
             else:
                 print('Введи число 1, 2 или 3!')
 
-        print()
-        print(f'Ты прибыл в {LOCATIONS[int(user_choice)-1]}')
-        print()
+        print(f'\nТы прибыл в {LOCATIONS[int(user_choice)-1]}\n')
 
         print(random.choice(event))
         print()
