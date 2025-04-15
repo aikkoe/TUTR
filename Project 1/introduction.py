@@ -18,7 +18,7 @@ slow_print('#     RPG GAME     #')
 print('####################')
 
 # ИНФОРМАЦИЯ О ИГРОКЕ
-USER_NAME = input('\nПриветсвую! Введите своё имя: ')
+USER_NAME = input('\nПриветствую! Введите своё имя: ')
 hp = 100  # healt
 invent = []  # inventory
 
