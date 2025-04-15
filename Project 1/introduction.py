@@ -4,7 +4,7 @@ import time
 import sys
 
 
-# функция медленного ввода текста
+# функция медленного вывода текста
 def slow_print(text, delay=0.03):
     for char in text:
         sys.stdout.write(char)
@@ -94,27 +94,41 @@ enemy_solder = {
     "damage": 15
 }
 
+enemy_king = {
+    "name": "King",
+    "hp": 100,
+    "damage": 20
+}
+
 # Список противников
-enemies = [enemy_zombie, enemy_solder]
+enemies = [enemy_zombie, enemy_solder, enemy_king]
 
 
 def fight(enemy, user_hp):  # БОЕВАЯ СИСТЕМА
+    slow_print(f"Ты встретил {enemy['name']}!")
     while enemy['hp'] > 0 and user_hp > 0:
-        # удар игрока
-        enemy['hp'] -= 15
-        slow_print(
-            f"Ты ударил {enemy['name']}! У него осталось {enemy['hp']} HP")
-
-        # удар противника
-        if enemy['hp'] > 0:
+        slow_print(f'Он приближается к тебе...')
+        slow_print(f'Ты 1.Атакуешь или 2.Бежишь?')
+        user_choice = input()
+        if user_choice == '1':
+            slow_print(f"\nТы атакуешь {enemy['name']}!")
+            enemy['hp'] -= 15
+            slow_print(f"\nУ врага осталось {enemy['hp']} HP")
+            slow_print(f"\nВраг атакует тебя!")
             user_hp -= enemy['damage']
-            slow_print(
-                f"{enemy['name']} ударил тебя! У тебя осталось {user_hp} HP")
-
-        print()
+            slow_print(f"\nУ тебя осталось {user_hp} HP\n")
+        elif user_choice == '2':
+            slow_print(f"\nТы убегаешь от {enemy['name']}!")
+            break
+        else:
+            print('Нужно ввести 1 или 2!')
 
     if user_hp <= 0:
         slow_print('...YOU DIED...')
+    elif user_choice == '2':
+        slow_print(f"\nТы теряешь 10 HP во время побега!")
+        user_hp -= 10
+        slow_print(f"\nУ тебя осталось {user_hp} HP\n")
     else:
         slow_print(f"{enemy['name']} повержен!")
 
